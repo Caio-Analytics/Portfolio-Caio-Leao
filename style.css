@@ -221,8 +221,15 @@ a { color: inherit; }
   color: var(--bronze);
 }
 .fact__label { color: var(--ink-dim); font-size: 0.92rem; }
+.layer__deliver {
+  margin-top: 2.2rem;
+  color: var(--ink);
+  max-width: 780px;
+  font-size: 1rem;
+}
+.layer__deliver strong { color: var(--bronze); font-weight: 500; }
 .layer__note {
-  margin-top: 2.6rem;
+  margin-top: 1.6rem;
   padding-top: 2rem;
   border-top: var(--edge);
   color: var(--ink-dim);
@@ -303,6 +310,36 @@ a { color: inherit; }
   border: 1px solid var(--gold-dim);
   border-radius: 3px;
   padding: 0.28rem 0.6rem;
+}
+
+.project-card__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+.project-card__gallery figure {
+  margin: 0;
+  border: var(--edge);
+  border-radius: 5px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.25);
+}
+.project-card__gallery img {
+  display: block;
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.35s ease;
+}
+.project-card__gallery figure:hover img { transform: scale(1.06); }
+.project-card__gallery figcaption {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--ink-dim);
+  padding: 0.55rem 0.7rem;
+  border-top: var(--edge);
 }
 
 .project-card--pending {
