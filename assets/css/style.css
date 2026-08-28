@@ -60,6 +60,24 @@ a { color: inherit; }
 .eyebrow--silver { color: var(--silver); }
 .eyebrow--gold { color: var(--gold); }
 
+/* ---------- scroll progress ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  z-index: 20;
+  background: transparent;
+}
+.scroll-progress__bar {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--bronze), var(--gold));
+  transition: width 0.1s linear;
+}
+
 /* ---------- grain (hero only, subtle) ---------- */
 .grain {
   position: fixed;
@@ -331,6 +349,7 @@ a { color: inherit; }
   height: 140px;
   object-fit: cover;
   object-position: top;
+  cursor: zoom-in;
   transition: transform 0.35s ease;
 }
 .project-card__gallery figure:hover img { transform: scale(1.06); }
@@ -341,6 +360,53 @@ a { color: inherit; }
   padding: 0.55rem 0.7rem;
   border-top: var(--edge);
 }
+
+/* ---------- lightbox ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2.5rem clamp(1.5rem, 6vw, 5rem);
+  background: rgba(10, 8, 5, 0.92);
+  backdrop-filter: blur(3px);
+}
+.lightbox[hidden] { display: none; }
+.lightbox__img {
+  max-width: min(90vw, 1000px);
+  max-height: 78vh;
+  object-fit: contain;
+  border: var(--edge);
+  border-radius: 6px;
+  background: rgba(0,0,0,0.25);
+}
+.lightbox__caption {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+  margin: 0;
+  text-align: center;
+}
+.lightbox__close {
+  position: absolute;
+  top: 1.4rem;
+  right: clamp(1.5rem, 6vw, 5rem);
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 4px;
+  border: 1px solid var(--ink-faint);
+  background: transparent;
+  color: var(--ink);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.lightbox__close:hover { color: var(--gold); border-color: var(--gold); }
 
 .project-card--pending {
   border-style: dashed;

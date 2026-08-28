@@ -8,11 +8,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
 <div class="grain" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"><span class="scroll-progress__bar"></span></div>
 
 <header class="hero">
   <nav class="topnav">
@@ -51,19 +52,19 @@
         </p>
         <div class="layer__facts">
           <div class="fact">
-            <span class="fact__num">2 anos</span>
+            <span class="fact__num" data-count-to="2" data-suffix=" anos">0 anos</span>
             <span class="fact__label">estruturando dados em produção</span>
           </div>
           <div class="fact">
-            <span class="fact__num">14+</span>
+            <span class="fact__num" data-count-to="14" data-suffix="+">0+</span>
             <span class="fact__label">dashboards sustentados em Power BI</span>
           </div>
           <div class="fact">
-            <span class="fact__num">300+</span>
+            <span class="fact__num" data-count-to="300" data-suffix="+">0+</span>
             <span class="fact__label">usuários ativos nos dashboards oficiais</span>
           </div>
           <div class="fact">
-            <span class="fact__num">80%</span>
+            <span class="fact__num" data-count-to="80" data-suffix="%">0%</span>
             <span class="fact__label">redução de esforço operacional</span>
           </div>
         </div>
@@ -143,23 +144,23 @@
 
         <div class="project-card__gallery">
           <figure>
-            <img src="Images/recon-menu.webp" alt="Menu interativo do Recon no terminal, opção Analisar um arquivo" loading="lazy">
+            <img src="assets/images/recon/recon-menu.webp" alt="Menu interativo do Recon no terminal, opção Analisar um arquivo" loading="lazy" tabindex="0" role="button" aria-haspopup="dialog">
             <figcaption>Menu interativo</figcaption>
           </figure>
           <figure>
-            <img src="Images/recon-score.webp" alt="Relatório de perfilamento com nota de qualidade A e alerta de exposição de dado pessoal" loading="lazy">
+            <img src="assets/images/recon/recon-score.webp" alt="Relatório de perfilamento com nota de qualidade A e alerta de exposição de dado pessoal" loading="lazy" tabindex="0" role="button" aria-haspopup="dialog">
             <figcaption>Nota de qualidade + alerta LGPD</figcaption>
           </figure>
           <figure>
-            <img src="Images/recon-cpf.webp" alt="Detalhe da coluna CPF com valores mascarados" loading="lazy">
+            <img src="assets/images/recon/recon-cpf.webp" alt="Detalhe da coluna CPF com valores mascarados" loading="lazy" tabindex="0" role="button" aria-haspopup="dialog">
             <figcaption>CPF mascarado automaticamente</figcaption>
           </figure>
           <figure>
-            <img src="Images/recon-relacoes.webp" alt="Tabela de relações detectadas entre colunas, bijeção e dependência funcional" loading="lazy">
+            <img src="assets/images/recon/recon-relacoes.webp" alt="Tabela de relações detectadas entre colunas, bijeção e dependência funcional" loading="lazy" tabindex="0" role="button" aria-haspopup="dialog">
             <figcaption>Relações entre colunas</figcaption>
           </figure>
           <figure>
-            <img src="Images/recon-etl.webp" alt="Lista priorizada de recomendações de ETL por coluna" loading="lazy">
+            <img src="assets/images/recon/recon-etl.webp" alt="Lista priorizada de recomendações de ETL por coluna" loading="lazy" tabindex="0" role="button" aria-haspopup="dialog">
             <figcaption>Recomendações de ETL priorizadas</figcaption>
           </figure>
         </div>
@@ -190,6 +191,12 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada" hidden>
+  <button class="lightbox__close" type="button" aria-label="Fechar">&times;</button>
+  <img class="lightbox__img" src="" alt="">
+  <p class="lightbox__caption"></p>
+</div>
+
+<script src="assets/js/script.js"></script>
 </body>
 </html>

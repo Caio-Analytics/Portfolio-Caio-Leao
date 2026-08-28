@@ -22,12 +22,18 @@ Análise da produção mineral brasileira com dados reais e abertos da ANM (Agê
 
 ```
 .
-├── index.html          # página principal do portfólio
-├── style.css           # estilos
-├── script.js           # interações leves (revelação ao rolar)
-├── Images/              # screenshots dos projetos
+├── index.html                    # página principal do portfólio
+├── assets/
+│   ├── css/
+│   │   └── style.css             # estilos
+│   ├── js/
+│   │   └── script.js             # interações (revelação ao rolar, contadores, lightbox)
+│   └── images/
+│       └── recon/                # screenshots do projeto Recon
 └── README.md
 ```
+
+`index.html` fica na raiz do repositório porque é esse o arquivo que o GitHub Pages serve como ponto de entrada do site.
 
 ## Stack
 
