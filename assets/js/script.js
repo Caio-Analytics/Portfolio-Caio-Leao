@@ -27,17 +27,17 @@ if (progressBar) {
   window.addEventListener('resize', updateScrollProgress);
 }
 
-/* ---------- animated stat counters ---------- */
+/* ---------- animated stat counters ----------
+   The HTML already holds the real value (e.g. "14+"), so a browser with
+   JS disabled or a failed observer just shows the correct static number.
+   The animation only replaces that text once it is actually running. */
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function animateCount(el) {
   const target = parseInt(el.dataset.countTo, 10);
   const suffix = el.dataset.suffix || '';
 
-  if (reduceMotion || Number.isNaN(target)) {
-    el.textContent = target + suffix;
-    return;
-  }
+  if (reduceMotion || Number.isNaN(target)) return;
 
   const duration = 1200;
   const start = performance.now();
@@ -47,21 +47,26 @@ function animateCount(el) {
     const eased = 1 - Math.pow(1 - progress, 3);
     el.textContent = Math.round(target * eased) + suffix;
     if (progress < 1) requestAnimationFrame(tick);
+    else el.textContent = target + suffix;
   }
 
   requestAnimationFrame(tick);
 }
 
-const countIo = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCount(entry.target);
-      countIo.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.6 });
+const countTargets = document.querySelectorAll('.fact__num[data-count-to]');
 
-document.querySelectorAll('.fact__num[data-count-to]').forEach(el => countIo.observe(el));
+if ('IntersectionObserver' in window) {
+  const countIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        countIo.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3, rootMargin: '0px 0px -10% 0px' });
+
+  countTargets.forEach(el => countIo.observe(el));
+}
 
 /* ---------- gallery lightbox ---------- */
 const lightbox = document.getElementById('lightbox');
