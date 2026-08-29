@@ -80,9 +80,15 @@
           </div>
         </div>
       </div>
-      <p class="layer__deliver">
-        <strong>O que entrego:</strong> automação de ingestão com Power Automate e SharePoint/Dataverse, dados organizados em camadas (Bronze, Silver, Gold) via Power BI Dataflow pra manter histórico e rastreabilidade, e dashboards em Power BI prototipados no Figma antes da primeira medida em DAX. Também iniciei a migração de um fluxo de ETL pra SAS Viya, replicando as camadas como piloto em Python. Hoje os dashboards são usados pela liderança da área como referência oficial de acompanhamento.
-      </p>
+      <div class="layer__deliver">
+        <p class="layer__deliver-label">O que entrego</p>
+        <ul class="layer__deliver-list">
+          <li>Automação de ingestão com Power Automate e SharePoint/Dataverse</li>
+          <li>Dados organizados em camadas (Bronze, Silver, Gold) via Power BI Dataflow, com histórico e rastreabilidade</li>
+          <li>Dashboards em Power BI prototipados no Figma antes da primeira medida em DAX, hoje referência oficial da liderança da área</li>
+          <li>Piloto de migração de um fluxo de ETL pra SAS Viya, replicando as camadas em Python</li>
+        </ul>
+      </div>
       <p class="layer__note">Não segui um framework formal de engenharia: aprendi construindo, resolvendo problema real de RH, e refinando a estrutura com o tempo. Sou bacharel em Engenharia de Software pela Estácio, com formação contínua em análise de dados.</p>
     </div>
   </section>
@@ -157,8 +163,16 @@
           <a class="project-card__link" href="https://github.com/Caio-Analytics/Recon" target="_blank" rel="noopener">Ver repositório &rarr;</a>
         </div>
         <p class="project-card__desc">
-          Ferramenta de linha de comando que perfila arquivos de dados antes da análise. Infere o que cada coluna representa mesmo com nome abreviado, roda estatística avançada (teste de Shapiro-Wilk, qui-quadrado com V de Cramér, correlação de Pearson/Spearman, seleção de distribuição por AIC, ADF e Ljung-Box em série temporal), cruza tabelas pra descobrir quem é fato e quem é dimensão e monta o diagrama ER, valida regra de negócio entre colunas, detecta CPF e CNPJ validando o dígito verificador e mascara antes de expor, e sugere as análises certas já com código pandas e SQL prontos pra rodar.
+          Ferramenta de linha de comando que perfila arquivos de dados antes da análise começar de verdade.
         </p>
+        <ul class="project-card__points">
+          <li>Infere o que cada coluna representa, mesmo com nome abreviado</li>
+          <li>Roda estatística avançada: Shapiro-Wilk, qui-quadrado com V de Cramér, correlação de Pearson/Spearman, seleção de distribuição por AIC, ADF e Ljung-Box</li>
+          <li>Cruza tabelas pra descobrir quem é fato e quem é dimensão, e monta o diagrama ER</li>
+          <li>Valida regra de negócio entre colunas (ordem de datas, derivação aritmética, nulidade condicional)</li>
+          <li>Detecta CPF e CNPJ com validação de dígito verificador, mascara antes de expor</li>
+          <li>Sugere as análises certas já com código pandas e SQL prontos pra rodar</li>
+        </ul>
         <ul class="project-card__tags">
           <li>Python</li>
           <li>Perfilamento de Dados</li>
@@ -203,8 +217,15 @@
           </div>
         </div>
         <p class="project-card__desc">
-          Pipeline de dados e dashboard analítico sobre a mineração brasileira, construído sobre dados 100% reais e públicos do governo federal (ANM, Agência Nacional de Mineração, via Relatório Anual de Lavra), cobrindo 2010 a 2025 em duas bases (Produção Bruta e Produção Beneficiada), cerca de 10.300 registros combinados. Implementa um pipeline completo em camadas (Bronze, Silver, Gold), cruza as duas bases por SQL pra quantificar o valor que o beneficiamento agrega ao minério bruto, e publica tudo num dashboard executivo interativo: um único arquivo HTML autocontido, sem backend nem dependência externa. Inclui suíte de testes automatizados e integração contínua via GitHub Actions.
+          Pipeline de dados e dashboard analítico sobre a mineração brasileira, com dados 100% reais e públicos da ANM (Agência Nacional de Mineração).
         </p>
+        <ul class="project-card__points">
+          <li>Cobre 2010 a 2025 em duas bases (Produção Bruta e Produção Beneficiada), cerca de 10.300 registros combinados</li>
+          <li>Pipeline completo em camadas (Bronze, Silver, Gold)</li>
+          <li>Cruza as duas bases por SQL pra quantificar o valor que o beneficiamento agrega ao minério bruto</li>
+          <li>Dashboard executivo interativo: um único arquivo HTML autocontido, sem backend nem dependência externa</li>
+          <li>Testes automatizados e integração contínua via GitHub Actions</li>
+        </ul>
         <ul class="project-card__tags">
           <li>Python</li>
           <li>Polars</li>

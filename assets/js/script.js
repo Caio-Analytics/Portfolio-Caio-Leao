@@ -68,33 +68,39 @@ if ('IntersectionObserver' in window) {
   countTargets.forEach(el => countIo.observe(el));
 }
 
-/* ---------- sticky nav + scrollspy ---------- */
+/* ---------- sticky nav + scrollspy ----------
+   Plain scroll-position math instead of IntersectionObserver: it's the
+   same mechanism the progress bar above already uses reliably, and it
+   avoids observer edge cases across browsers/extensions. */
 const stickyNav = document.getElementById('stickynav');
 const heroEl = document.querySelector('.hero');
 
-if (stickyNav && heroEl && 'IntersectionObserver' in window) {
-  const navToggleIo = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      stickyNav.classList.toggle('is-visible', !entry.isIntersecting);
-    });
-  }, { threshold: 0 });
-  navToggleIo.observe(heroEl);
-
+if (stickyNav && heroEl) {
   const navLinks = [...stickyNav.querySelectorAll('[data-nav]')];
   const spySections = navLinks
     .map(link => document.getElementById(link.dataset.nav))
     .filter(Boolean);
 
-  const spyIo = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        navLinks.forEach(link => link.classList.toggle('is-active', link.dataset.nav === id));
+  function updateStickyNav() {
+    const heroBottom = heroEl.getBoundingClientRect().bottom;
+    stickyNav.classList.toggle('is-visible', heroBottom <= 0);
+
+    const viewportMiddle = window.innerHeight * 0.5;
+    let activeId = null;
+    spySections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= viewportMiddle && rect.bottom >= viewportMiddle) {
+        activeId = section.id;
       }
     });
-  }, { threshold: 0, rootMargin: '-45% 0px -45% 0px' });
+    if (activeId) {
+      navLinks.forEach(link => link.classList.toggle('is-active', link.dataset.nav === activeId));
+    }
+  }
 
-  spySections.forEach(section => spyIo.observe(section));
+  updateStickyNav();
+  window.addEventListener('scroll', updateStickyNav, { passive: true });
+  window.addEventListener('resize', updateStickyNav);
 }
 
 /* ---------- cursor-tracking glow on project cards ---------- */

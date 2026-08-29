@@ -289,11 +289,40 @@ a { color: inherit; }
 .fact__label { color: var(--ink-dim); font-size: 0.92rem; }
 .layer__deliver {
   margin-top: 2.2rem;
-  color: var(--ink);
   max-width: 780px;
-  font-size: 1rem;
 }
-.layer__deliver strong { color: var(--bronze); font-weight: 500; }
+.layer__deliver-label {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin: 0 0 0.9rem;
+}
+.layer__deliver-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+.layer__deliver-list li {
+  position: relative;
+  padding-left: 1.3rem;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.layer__deliver-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  background: var(--bronze);
+}
 .layer__note {
   margin-top: 1.6rem;
   padding-top: 2rem;
@@ -334,13 +363,17 @@ a { color: inherit; }
   border-radius: 6px;
   padding: 2.2rem clamp(1.4rem, 3vw, 2.6rem);
   margin-bottom: 1.4rem;
+  transition: border-color 0.2s ease;
+}
+.project-card:hover {
+  border-color: var(--gold-dim);
 }
 .project-card::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(221, 174, 63, 0.14), transparent 70%);
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(221, 174, 63, 0.22), transparent 70%);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -378,7 +411,33 @@ a { color: inherit; }
 .project-card__desc {
   color: var(--ink-dim);
   max-width: 720px;
+  font-size: 1.02rem;
+  margin: 0 0 0.9rem;
+}
+.project-card__points {
+  list-style: none;
   margin: 0 0 1.4rem;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+  max-width: 720px;
+}
+.project-card__points li {
+  position: relative;
+  padding-left: 1.3rem;
+  color: var(--ink);
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+.project-card__points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  background: var(--gold);
 }
 .project-card__tags {
   display: flex;
