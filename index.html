@@ -105,6 +105,7 @@
             <li>DAX</li>
             <li>Power Query</li>
             <li>ETL</li>
+            <li>dbt</li>
             <li>Modelagem de Dados</li>
             <li>Arquitetura de Dados</li>
             <li>Big Data (Spark, Hadoop)</li>
@@ -213,6 +214,7 @@
           <h3>Bateia</h3>
           <div class="project-card__links">
             <a class="project-card__link" href="https://caio-analytics.github.io/bateia/" target="_blank" rel="noopener">Ver dashboard &rarr;</a>
+            <a class="project-card__link" href="https://caio-analytics.github.io/bateia/dbt/" target="_blank" rel="noopener">Ver documentação dbt &rarr;</a>
             <a class="project-card__link" href="https://github.com/Caio-Analytics/bateia" target="_blank" rel="noopener">Ver repositório &rarr;</a>
           </div>
         </div>
@@ -221,19 +223,20 @@
         </p>
         <ul class="project-card__points">
           <li>Cobre 2010 a 2025 em duas bases (Produção Bruta e Produção Beneficiada), cerca de 10.300 registros combinados</li>
-          <li>Pipeline completo em camadas (Bronze, Silver, Gold)</li>
+          <li>Bronze em Python/Polars, só o trecho que decodifica o CSV cp1252 do governo; Silver, Gold e o cruzamento inteiramente em dbt sobre DuckDB</li>
           <li>Cruza as duas bases por SQL pra quantificar o valor que o beneficiamento agrega ao minério bruto</li>
+          <li>58 testes dbt (schema e singular), validando toda UF contra um seed de região, com documentação e linhagem geradas automaticamente</li>
           <li>Dashboard executivo interativo: um único arquivo HTML autocontido, sem backend nem dependência externa</li>
-          <li>Testes automatizados e integração contínua via GitHub Actions</li>
         </ul>
         <ul class="project-card__tags">
           <li>Python</li>
           <li>Polars</li>
+          <li>dbt (dbt-duckdb)</li>
           <li>DuckDB (SQL)</li>
           <li>Pipeline Bronze/Silver/Gold</li>
           <li>PyArrow/Parquet</li>
           <li>GitHub Actions (CI)</li>
-          <li>Testes automatizados</li>
+          <li>58 testes dbt</li>
           <li>Dashboard sem backend</li>
         </ul>
 
