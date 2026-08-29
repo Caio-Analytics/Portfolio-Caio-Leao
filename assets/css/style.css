@@ -362,6 +362,11 @@ a { color: inherit; }
   margin: 0;
   color: var(--gold);
 }
+.project-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.2rem;
+}
 .project-card__link {
   font-family: var(--mono);
   font-size: 0.85rem;
@@ -514,7 +519,9 @@ a { color: inherit; }
   .layer__grid { grid-template-columns: 1fr; gap: 2rem; }
   .layer__facts { border-left: none; border-top: 1px solid var(--bronze-dim); padding-left: 0; padding-top: 1.4rem; flex-direction: row; flex-wrap: wrap; }
   .fact { min-width: 130px; }
+  .topnav { flex-wrap: wrap; row-gap: 0.6rem; }
+  .topnav__links { flex-wrap: wrap; row-gap: 0.4rem; }
   .topnav__links a { margin-left: 1.1rem; }
-  .stickynav { padding: 0.8rem 1.5rem; }
-  .stickynav__links { gap: 1.1rem; }
+  .stickynav { padding: 0.8rem 1.5rem; flex-wrap: wrap; row-gap: 0.5rem; }
+  .stickynav__links { gap: 1.1rem; flex-wrap: wrap; row-gap: 0.4rem; }
 }

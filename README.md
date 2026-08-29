@@ -15,8 +15,12 @@ Mais contexto e a trajetória completa estão no site publicado.
 ### [Recon](https://github.com/Caio-Analytics/Recon)
 Ferramenta de linha de comando em Python que perfila arquivos de dados antes da análise: infere semântica de coluna mesmo com nome abreviado, roda estatística avançada (Shapiro-Wilk, qui-quadrado, correlação de Pearson/Spearman, seleção de distribuição por AIC, ADF e Ljung-Box), cruza tabelas para identificar fato e dimensão e monta o diagrama ER, detecta CPF/CNPJ com validação de dígito verificador e mascara antes de expor, e sugere análises com código pandas e SQL prontos. Só regras determinísticas, sem modelo de IA. 306 testes automatizados.
 
-### [Bateia](https://github.com/Caio-Analytics/bateia)
+### [Bateia](https://github.com/Caio-Analytics/bateia) &middot; [dashboard ao vivo](https://caio-analytics.github.io/bateia/)
 Pipeline de dados e dashboard analítico sobre a mineração brasileira, sobre dados 100% reais e públicos da ANM (Agência Nacional de Mineração, via Relatório Anual de Lavra), cobrindo 2010 a 2025 em duas bases (Produção Bruta e Produção Beneficiada), cerca de 10.300 registros combinados. Pipeline completo em camadas (Bronze, Silver, Gold), cruzamento das duas bases por SQL pra quantificar o valor que o beneficiamento agrega ao minério bruto, e dashboard executivo interativo num único arquivo HTML autocontido, sem backend. Testes automatizados e integração contínua via GitHub Actions.
+
+## CV
+
+O currículo em PDF (`assets/documents/cv-caio-leao.pdf`) é gerado a partir do mesmo conteúdo do site, pra não ficar desatualizado em relação a ele. Linkado no topo e no rodapé da página como "Baixar CV".
 
 ## Estrutura do repositório
 
@@ -27,7 +31,9 @@ Pipeline de dados e dashboard analítico sobre a mineração brasileira, sobre d
 │   ├── css/
 │   │   └── style.css             # estilos
 │   ├── js/
-│   │   └── script.js             # interações (revelação ao rolar, contadores, lightbox)
+│   │   └── script.js             # interações (revelação ao rolar, nav fixa, contadores, lightbox)
+│   ├── documents/
+│   │   └── cv-caio-leao.pdf      # currículo em PDF
 │   └── images/
 │       ├── recon/                # screenshots do projeto Recon
 │       └── bateia/               # screenshots do projeto Bateia
