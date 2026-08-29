@@ -66,8 +66,8 @@ a { color: inherit; }
   top: 0;
   left: 0;
   width: 100%;
-  height: 2px;
-  z-index: 20;
+  height: 3px;
+  z-index: 30;
   background: transparent;
 }
 .scroll-progress__bar {
@@ -75,8 +75,55 @@ a { color: inherit; }
   height: 100%;
   width: 0%;
   background: linear-gradient(90deg, var(--bronze), var(--gold));
+  box-shadow: 0 0 8px rgba(221, 174, 63, 0.55);
   transition: width 0.1s linear;
 }
+
+/* ---------- sticky nav (appears once you scroll past the hero) ---------- */
+.stickynav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.95rem clamp(1.5rem, 6vw, 5rem);
+  background: rgba(23, 20, 15, 0.86);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: var(--edge);
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  pointer-events: none;
+}
+.stickynav.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.stickynav__mark {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.stickynav__links { display: flex; gap: 1.75rem; }
+.stickynav__links a {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-dim);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.stickynav__links a:hover { color: var(--ink); }
+.stickynav__links a.is-active { color: var(--gold); border-color: var(--gold); }
 
 /* ---------- grain (hero only, subtle) ---------- */
 .grain {
@@ -280,11 +327,26 @@ a { color: inherit; }
 
 /* gold / projects */
 .project-card {
+  position: relative;
+  overflow: hidden;
   background: rgba(239, 232, 217, 0.03);
   border: var(--edge);
   border-radius: 6px;
   padding: 2.2rem clamp(1.4rem, 3vw, 2.6rem);
   margin-bottom: 1.4rem;
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(221, 174, 63, 0.14), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .project-card:hover::before { opacity: 1; }
 }
 .project-card__head {
   display: flex;
@@ -453,4 +515,6 @@ a { color: inherit; }
   .layer__facts { border-left: none; border-top: 1px solid var(--bronze-dim); padding-left: 0; padding-top: 1.4rem; flex-direction: row; flex-wrap: wrap; }
   .fact { min-width: 130px; }
   .topnav__links a { margin-left: 1.1rem; }
+  .stickynav { padding: 0.8rem 1.5rem; }
+  .stickynav__links { gap: 1.1rem; }
 }

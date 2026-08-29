@@ -68,6 +68,44 @@ if ('IntersectionObserver' in window) {
   countTargets.forEach(el => countIo.observe(el));
 }
 
+/* ---------- sticky nav + scrollspy ---------- */
+const stickyNav = document.getElementById('stickynav');
+const heroEl = document.querySelector('.hero');
+
+if (stickyNav && heroEl && 'IntersectionObserver' in window) {
+  const navToggleIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      stickyNav.classList.toggle('is-visible', !entry.isIntersecting);
+    });
+  }, { threshold: 0 });
+  navToggleIo.observe(heroEl);
+
+  const navLinks = [...stickyNav.querySelectorAll('[data-nav]')];
+  const spySections = navLinks
+    .map(link => document.getElementById(link.dataset.nav))
+    .filter(Boolean);
+
+  const spyIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(link => link.classList.toggle('is-active', link.dataset.nav === id));
+      }
+    });
+  }, { threshold: 0, rootMargin: '-45% 0px -45% 0px' });
+
+  spySections.forEach(section => spyIo.observe(section));
+}
+
+/* ---------- cursor-tracking glow on project cards ---------- */
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+    card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+  });
+});
+
 /* ---------- gallery lightbox ---------- */
 const lightbox = document.getElementById('lightbox');
 
