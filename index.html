@@ -172,13 +172,43 @@
         </div>
       </article>
 
-      <article class="project-card project-card--pending">
+      <article class="project-card">
         <div class="project-card__head">
-          <h3>Próximo projeto</h3>
+          <h3>Bateia</h3>
+          <a class="project-card__link" href="https://github.com/Caio-Analytics/bateia" target="_blank" rel="noopener">Ver repositório &rarr;</a>
         </div>
         <p class="project-card__desc">
-          Em construção: análise da produção mineral brasileira com dados reais e abertos da ANM (Agência Nacional de Mineração), da limpeza em Python ao dashboard em Power BI. Volto aqui assim que publicar.
+          Pipeline de dados e dashboard analítico sobre a mineração brasileira, construído sobre dados 100% reais e públicos do governo federal (ANM, Agência Nacional de Mineração, via Relatório Anual de Lavra), cobrindo 2010 a 2025 em duas bases (Produção Bruta e Produção Beneficiada), cerca de 10.300 registros combinados. Implementa um pipeline completo em camadas (Bronze, Silver, Gold), cruza as duas bases por SQL pra quantificar o valor que o beneficiamento agrega ao minério bruto, e publica tudo num dashboard executivo interativo: um único arquivo HTML autocontido, sem backend nem dependência externa. Inclui suíte de testes automatizados e integração contínua via GitHub Actions.
         </p>
+        <ul class="project-card__tags">
+          <li>Python</li>
+          <li>Polars</li>
+          <li>DuckDB (SQL)</li>
+          <li>Pipeline Bronze/Silver/Gold</li>
+          <li>PyArrow/Parquet</li>
+          <li>GitHub Actions (CI)</li>
+          <li>Testes automatizados</li>
+          <li>Dashboard sem backend</li>
+        </ul>
+
+        <div class="project-card__gallery">
+          <figure>
+            <img src="assets/images/bateia/bateia-bruta.webp" alt="Dashboard da Bateia mostrando produção mineral bruta no Brasil, com KPIs e gráficos de produção e valor de venda por ano" loading="lazy" tabindex="0" role="button" aria-haspopup="dialog">
+            <figcaption>Produção bruta por ano</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/images/bateia/bateia-beneficiada.webp" alt="Dashboard da Bateia mostrando produção mineral beneficiada no Brasil, com valor de venda e valor movimentado por ano" loading="lazy" tabindex="0" role="button" aria-haspopup="dialog">
+            <figcaption>Produção beneficiada</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/images/bateia/bateia-cruzamento.webp" alt="Cruzamento entre produção bruta e beneficiada mostrando quanto valor o beneficiamento agrega por substância" loading="lazy" tabindex="0" role="button" aria-haspopup="dialog">
+            <figcaption>Cruzamento bruta &times; beneficiada</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/images/bateia/bateia-tema-claro.webp" alt="Mesmo dashboard de produção bruta no tema claro, mostrando o alternador de tema" loading="lazy" tabindex="0" role="button" aria-haspopup="dialog">
+            <figcaption>Alternância de tema claro/escuro</figcaption>
+          </figure>
+        </div>
       </article>
     </div>
   </section>

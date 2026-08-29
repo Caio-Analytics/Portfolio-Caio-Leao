@@ -409,12 +409,6 @@ a { color: inherit; }
 }
 .lightbox__close:hover { color: var(--gold); border-color: var(--gold); }
 
-.project-card--pending {
-  border-style: dashed;
-  opacity: 0.75;
-}
-.project-card--pending h3 { color: var(--ink-dim); }
-
 /* ---------- footer ---------- */
 .site-footer {
   background: var(--bg-base);
