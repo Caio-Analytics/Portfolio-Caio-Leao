@@ -120,6 +120,7 @@ a { color: inherit; }
   font-size: 0.85rem;
   letter-spacing: 0.05em;
   color: var(--ink-dim);
+  white-space: nowrap;
 }
 .topnav__links a {
   text-decoration: none;

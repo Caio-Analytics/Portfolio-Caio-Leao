@@ -13,7 +13,7 @@ Mais contexto e a trajetória completa estão no site publicado.
 ## Projetos em destaque
 
 ### [Recon](https://github.com/Caio-Analytics/Recon)
-Ferramenta de linha de comando em Python que perfila arquivos de dados antes da análise: infere semântica de coluna mesmo com nome abreviado, cruza tabelas para identificar fato e dimensão, detecta CPF/CNPJ com validação de dígito verificador e mascara antes de expor, e sugere análises com código pandas e SQL prontos. Só regras determinísticas, sem modelo de IA. 306 testes automatizados.
+Ferramenta de linha de comando em Python que perfila arquivos de dados antes da análise: infere semântica de coluna mesmo com nome abreviado, roda estatística avançada (Shapiro-Wilk, qui-quadrado, correlação de Pearson/Spearman, seleção de distribuição por AIC, ADF e Ljung-Box), cruza tabelas para identificar fato e dimensão e monta o diagrama ER, detecta CPF/CNPJ com validação de dígito verificador e mascara antes de expor, e sugere análises com código pandas e SQL prontos. Só regras determinísticas, sem modelo de IA. 306 testes automatizados.
 
 ### Em construção
 Análise da produção mineral brasileira com dados reais e abertos da ANM (Agência Nacional de Mineração).
