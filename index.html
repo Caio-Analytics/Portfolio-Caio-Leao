@@ -215,6 +215,7 @@
           <div class="project-card__links">
             <a class="project-card__link" href="https://caio-analytics.github.io/bateia/" target="_blank" rel="noopener">Ver dashboard &rarr;</a>
             <a class="project-card__link" href="https://caio-analytics.github.io/bateia/dbt/" target="_blank" rel="noopener">Ver documentação dbt &rarr;</a>
+            <a class="project-card__link" href="https://github.com/Caio-Analytics/bateia-ops" target="_blank" rel="noopener">Ver orquestração &rarr;</a>
             <a class="project-card__link" href="https://github.com/Caio-Analytics/bateia" target="_blank" rel="noopener">Ver repositório &rarr;</a>
           </div>
         </div>
@@ -227,6 +228,7 @@
           <li>Cruza as duas bases por SQL pra quantificar o valor que o beneficiamento agrega ao minério bruto</li>
           <li>58 testes dbt (schema e singular), validando toda UF contra um seed de região, com documentação e linhagem geradas automaticamente</li>
           <li>Dashboard executivo interativo: um único arquivo HTML autocontido, sem backend nem dependência externa</li>
+          <li><a href="https://github.com/Caio-Analytics/bateia-ops" target="_blank" rel="noopener">Bateia Ops</a>: o mesmo ETL rodando como grafo de assets no Dagster, via Docker Compose, com retry automático e um <em>asset check</em> que barra o pipeline se o cruzamento degenerar</li>
         </ul>
         <ul class="project-card__tags">
           <li>Python</li>
@@ -234,7 +236,8 @@
           <li>dbt (dbt-duckdb)</li>
           <li>DuckDB (SQL)</li>
           <li>Pipeline Bronze/Silver/Gold</li>
-          <li>PyArrow/Parquet</li>
+          <li>Dagster</li>
+          <li>Docker</li>
           <li>GitHub Actions (CI)</li>
           <li>58 testes dbt</li>
           <li>Dashboard sem backend</li>
@@ -257,7 +260,40 @@
             <img src="assets/images/bateia/bateia-tema-claro.webp" alt="Mesmo dashboard de produção bruta no tema claro, mostrando o alternador de tema" loading="lazy" tabindex="0" role="button" aria-haspopup="dialog">
             <figcaption>Alternância de tema claro/escuro</figcaption>
           </figure>
+          <figure>
+            <img src="assets/images/bateia/bateia-dagster.webp" alt="Grafo de lineage no Dagster mostrando os assets Bronze, Silver, Gold, cruzamento e dashboard materializados em sequência" loading="lazy" tabindex="0" role="button" aria-haspopup="dialog">
+            <figcaption>Lineage no Dagster (Bateia Ops)</figcaption>
+          </figure>
         </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-card__head">
+          <h3>colsemantics</h3>
+          <div class="project-card__links">
+            <a class="project-card__link" href="https://pypi.org/project/colsemantics/" target="_blank" rel="noopener">Ver no PyPI &rarr;</a>
+            <a class="project-card__link" href="https://github.com/Caio-Analytics/colsemantics" target="_blank" rel="noopener">Ver repositório &rarr;</a>
+          </div>
+        </div>
+        <p class="project-card__desc">
+          Biblioteca Python publicada no PyPI que infere o papel e o domínio de uma coluna a partir do nome, abreviação e conteúdo, sem dicionário fechado nem modelo de IA.
+        </p>
+        <ul class="project-card__points">
+          <li>Cascata de 6 detectores independentes (padrão de conteúdo, dicionário com abreviação expandida, fuzzy Jaro-Winkler, gazetteer de conteúdo, assinatura estrutural, contexto da tabela), combinados por noisy-OR</li>
+          <li>Reconstrói abreviação corporativa (<code>cd_dpto_lot</code> vira "código" + "departamento" + "lotação") mesmo sem estar em nenhum dicionário</li>
+          <li>Desambigua nome opaco pelo conteúdo da coluna e pelas colunas vizinhas já resolvidas na mesma tabela</li>
+          <li>Devolve confiança, a evidência que decidiu, e hipóteses alternativas ranqueadas quando não é conclusivo</li>
+          <li>Extraída do motor de inferência semântica do Recon, agora um pacote standalone: <code>pip install colsemantics</code></li>
+        </ul>
+        <ul class="project-card__tags">
+          <li>Python</li>
+          <li>Publicado no PyPI</li>
+          <li>Inferência Semântica</li>
+          <li>Noisy-OR</li>
+          <li>Jaro-Winkler</li>
+          <li>Tipado (py.typed)</li>
+          <li>Testado</li>
+        </ul>
       </article>
     </div>
   </section>

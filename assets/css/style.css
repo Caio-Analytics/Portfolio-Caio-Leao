@@ -439,6 +439,12 @@ a { color: inherit; }
   border-radius: 1px;
   background: var(--gold);
 }
+.project-card__points a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-dim);
+}
+.project-card__points a:hover { border-color: var(--gold); }
 .project-card__tags {
   display: flex;
   flex-wrap: wrap;
